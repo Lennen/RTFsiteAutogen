@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	</head>
+	<body>
+
+     
+	</body>
+  <script>
+async function postData(url, data){
+const response = await fetch(url, {
+method: 'POST',
+body: JSON.stringify(data),
+headers: {
+'Content-Type': 'application/json'
+}
+});
+const result = await response.json();
+console.log(result);
+}
+
+let button = document.createElement('button');
+button.textContent = "Обработать информацию"
+button.onclick = () => {
+postData('http://wellink.tmweb.ru', {
+text: "da"
+});
+}
+document.body.appendChild(button);
+  </script>
+</html>
